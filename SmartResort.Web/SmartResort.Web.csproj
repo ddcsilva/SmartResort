@@ -23,4 +23,8 @@
     <ProjectReference Include="..\SmartResort.Infrastructure\SmartResort.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Chale\" />
+  </ItemGroup>
+
 </Project>

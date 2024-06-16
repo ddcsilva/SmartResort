@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SmartResort.Domain.Entities.Chale>
+
+<div class="w-100 card border-0 p-4">
+    <div class="card-header bg-success bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Lista de Chalés</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body border p-4">
+        <div class="row pb-3">
+            <div class="col-6 offset-6 text-end">
+                <a asp-controller="Chales" asp-action="Criar" class="btn btn-secondary">
+                    <i class="bi bi-plus-circle"></i> Criar Chalé
+                </a>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Metros Quadrados</th>
+                    <th>Ocupação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var chale in Model)
+                {
+                    <tr>
+                        <td>@chale.Nome</td>
+                        <td>@chale.Preco</td>
+                        <td>@chale.MetrosQuadrados</td>
+                        <td>@chale.Ocupacao</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
