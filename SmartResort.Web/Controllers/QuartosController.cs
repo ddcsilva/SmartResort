@@ -33,6 +33,7 @@ public class QuartosController(SmartResortContext context) : Controller
         {
             _context.Quartos.Add(quarto);
             _context.SaveChanges();
+            TempData["MensagemDeSucesso"] = "Quarto cadastrado com sucesso!";
             return RedirectToAction("Index");
         }
 
@@ -43,7 +44,7 @@ public class QuartosController(SmartResortContext context) : Controller
     public IActionResult Editar(int quartoId)
     {
         Quarto? quarto = _context.Quartos.FirstOrDefault(u => u.Id == quartoId);
-        
+
         if (quarto is null)
         {
             return RedirectToAction("PaginaNaoEncontrada", "Home");
@@ -59,6 +60,7 @@ public class QuartosController(SmartResortContext context) : Controller
         {
             _context.Quartos.Update(quarto);
             _context.SaveChanges();
+            TempData["MensagemDeSucesso"] = "Quarto atualizado com sucesso!";
             return RedirectToAction("Index");
         }
 
@@ -87,6 +89,7 @@ public class QuartosController(SmartResortContext context) : Controller
         {
             _context.Quartos.Remove(quartoEncontrado);
             _context.SaveChanges();
+            TempData["MensagemDeSucesso"] = "Quarto excluído com sucesso!";
             return RedirectToAction("Index");
         }
 
