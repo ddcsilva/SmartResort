@@ -5,38 +5,38 @@ namespace SmartResort.Infrastructure.Data;
 
 public class SmartResortContext(DbContextOptions<SmartResortContext> options) : DbContext(options)
 {
-    public DbSet<Chale> Chales { get; set; }
+    public DbSet<Quarto> Quartos { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Chale>().HasData(
-            new Chale
+        modelBuilder.Entity<Quarto>().HasData(
+            new Quarto
             {
                 Id = 1,
-                Nome = "Chalé Real",
-                Descricao = "Chalé de luxo com vista para o mar",
+                Nome = "Quarto Real",
+                Descricao = "Quarto de luxo com vista para o mar",
                 UrlImagem = "https://placehold.co/600x400",
-                Ocupacao = 4,
+                Capacidade = 4,
                 Preco = 200,
                 MetrosQuadrados = 55
             },
-            new Chale
+            new Quarto
             {
                 Id = 2,
-                Nome = "Chalé com Piscina Premium",
-                Descricao = "Chalé com piscina privativa e vista para o mar",
+                Nome = "Quarto com Piscina Premium",
+                Descricao = "Quarto com piscina privativa e vista para o mar",
                 UrlImagem = "https://placehold.co/600x401",
-                Ocupacao = 4,
+                Capacidade = 4,
                 Preco = 300,
                 MetrosQuadrados = 55
             },
-            new Chale
+            new Quarto
             {
                 Id = 3,
-                Nome = "Chalé com Piscina de Luxo",
-                Descricao = "Chalé com piscina privativa e vista para o mar",
+                Nome = "Quarto com Piscina de Luxo",
+                Descricao = "Quarto com piscina privativa e vista para o mar",
                 UrlImagem = "https://placehold.co/600x402",
-                Ocupacao = 4,
+                Capacidade = 4,
                 Preco = 400,
                 MetrosQuadrados = 75
             }

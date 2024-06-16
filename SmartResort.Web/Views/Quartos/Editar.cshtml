@@ -1,16 +1,16 @@
-﻿@model SmartResort.Domain.Entities.Chale
-
+﻿@model SmartResort.Domain.Entities.Quarto
 
 <div class="w-100 card border-0 p-4">
     <div class="card-header bg-success bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Novo Chalé</h2>
+                <h2 class="text-white py-2">Edição do Quarto</h2>
             </div>
         </div>
     </div>
     <div class="card-body border p-4">
         <form method="post" class="row">
+            <input asp-for="Id" hidden />
             <div class="p-3">
                 <div class="form-floating py-1 col-12">
                     <input asp-for="Nome" class="form-control border shadow" />
@@ -33,9 +33,9 @@
                     <span asp-validation-for="MetrosQuadrados" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="Ocupacao" class="form-control border shadow" />
-                    <label asp-for="Ocupacao" class="ms-2"></label>
-                    <span asp-validation-for="Ocupacao" class="text-danger"></span>
+                    <input asp-for="Capacidade" class="form-control border shadow" />
+                    <label asp-for="Capacidade" class="ms-2"></label>
+                    <span asp-validation-for="Capacidade" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-1 col-12">
                     <input asp-for="UrlImagem" class="form-control border shadow" />
@@ -45,11 +45,11 @@
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
                         <button type="submit" class="btn btn-success w-100">
-                            <i class="bi bi-check-circle"></i> Salvar
+                            <i class="bi bi-check-circle"></i> Editar
                         </button>
                     </div>
                     <div class="col-6 col-md-3">
-                        <a asp-controller="Chale" asp-action="Index" class="btn btn-secondary w-100">
+                        <a asp-controller="Quartos" asp-action="Index" class="btn btn-secondary w-100">
                             <i class="bi bi-x-circle"></i> Cancelar
                         </a>
                     </div>

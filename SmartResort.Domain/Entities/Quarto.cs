@@ -2,7 +2,7 @@
 
 namespace SmartResort.Domain.Entities;
 
-public class Chale
+public class Quarto
 {
     public int Id { get; set; }
 
@@ -19,9 +19,9 @@ public class Chale
     [Display(Name = "Tamanho em m²")]
     public int MetrosQuadrados { get; set; }
 
-    [Display(Name = "Ocupação")]
+    [Display(Name = "Capacidade")]
     [Range(1, 10)]
-    public int Ocupacao { get; set; }
+    public int Capacidade { get; set; }
 
     [Display(Name = "URL da Imagem")]
     public string? UrlImagem { get; set; }
