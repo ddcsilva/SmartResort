@@ -1,46 +1,34 @@
-﻿@model Quarto
+﻿@model QuartoViewModel
 
 <div class="w-100 card border-0 p-4">
     <div class="card-header bg-success bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Edição do Quarto</h2>
+                <h2 class="text-white py-2">Atualização do Quarto</h2>
             </div>
         </div>
     </div>
     <div class="card-body border p-4">
         <form method="post" class="row">
-            <input asp-for="Id" hidden />
+            <input asp-for="Quarto.Numero" hidden />
             <div class="p-3">
+
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="Nome" class="form-control border shadow" />
-                    <label asp-for="Nome" class="ms-2"></label>
-                    <span asp-validation-for="Nome" class="text-danger"></span>
+                    <select asp-for="@Model.Quarto.BangaloId" asp-items="@Model.ListaDeBangalos"
+                            class="form-select border shadow">
+                        <option disabled selected>--Select Villa--</option>
+                    </select>
+                    <label asp-for="Quarto.BangaloId" class="ms-2"></label>
+                    <span asp-validation-for="Quarto.BangaloId" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="Descricao" class="form-control border shadow" />
-                    <label asp-for="Descricao" class="ms-2"></label>
-                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                    <input asp-for="Quarto.Numero" disabled class="form-control border shadow" />
+                    <label asp-for="Quarto.Numero" class="ms-2"></label>
                 </div>
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="Preco" class="form-control border shadow" />
-                    <label asp-for="Preco" class="ms-2"></label>
-                    <span asp-validation-for="Preco" class="text-danger"></span>
-                </div>
-                <div class="form-floating py-1 col-12">
-                    <input asp-for="MetrosQuadrados" class="form-control border shadow" />
-                    <label asp-for="MetrosQuadrados" class="ms-2"></label>
-                    <span asp-validation-for="MetrosQuadrados" class="text-danger"></span>
-                </div>
-                <div class="form-floating py-1 col-12">
-                    <input asp-for="Capacidade" class="form-control border shadow" />
-                    <label asp-for="Capacidade" class="ms-2"></label>
-                    <span asp-validation-for="Capacidade" class="text-danger"></span>
-                </div>
-                <div class="form-floating py-1 col-12">
-                    <input asp-for="UrlImagem" class="form-control border shadow" />
-                    <label asp-for="UrlImagem" class="ms-2"></label>
-                    <span asp-validation-for="UrlImagem" class="text-danger"></span>
+                    <input asp-for="Quarto.DetalhesExtras" class="form-control border shadow" />
+                    <label asp-for="Quarto.DetalhesExtras" class="ms-2"></label>
+                    <span asp-validation-for="Quarto.DetalhesExtras" class="text-danger"></span>
                 </div>
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">

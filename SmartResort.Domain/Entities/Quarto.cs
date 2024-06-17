@@ -1,30 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartResort.Domain.Entities;
 
 public class Quarto
 {
-    public int Id { get; set; }
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+    [Display(Name = "Número")]
+    public int Numero { get; set; }
 
-    [MaxLength(50)]
-    public required string Nome { get; set; }
+    public string? DetalhesExtras { get; set; }
 
-    [Display(Name = "Descrição")]
-    public string? Descricao { get; set; }
+    [ForeignKey("Bangalo")]
+    public int BangaloId { get; set; }
 
-    [Display(Name = "Preço por Diária")]
-    [Range(10, 10000)]
-    public decimal Preco { get; set; }
-
-    [Display(Name = "Tamanho em m²")]
-    public int MetrosQuadrados { get; set; }
-
-    [Display(Name = "Capacidade")]
-    [Range(1, 10)]
-    public int Capacidade { get; set; }
-
-    [Display(Name = "URL da Imagem")]
-    public string? UrlImagem { get; set; }
-    public DateTime DataCriacao { get; set; }
-    public DateTime? DataAtualizacao { get; set; }
+    [ValidateNever]
+    public Bangalo Bangalo { get; set; } = null!;
 }

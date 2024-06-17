@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartResort.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using SmartResort.Infrastructure.Data;
 namespace SmartResort.Infrastructure.Migrations
 {
     [DbContext(typeof(SmartResortContext))]
-    partial class SmartResortContextModelSnapshot : ModelSnapshot
+    [Migration("20240616224840_AdicionandoTabelaQuarto")]
+    partial class AdicionandoTabelaQuarto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

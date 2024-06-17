@@ -5,40 +5,89 @@ namespace SmartResort.Infrastructure.Data;
 
 public class SmartResortContext(DbContextOptions<SmartResortContext> options) : DbContext(options)
 {
-    public DbSet<Quarto> Quartos { get; set; }
+    public DbSet<Bangalo> Bangalos { get; set; } = null!;
+    public DbSet<Quarto> Quartos { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Quarto>().HasData(
-            new Quarto
+        modelBuilder.Entity<Bangalo>().HasData(
+            new Bangalo
             {
                 Id = 1,
-                Nome = "Quarto Real",
-                Descricao = "Quarto de luxo com vista para o mar",
+                Nome = "Bangalo Real",
+                Descricao = "Bangalo de luxo com vista para o mar",
                 UrlImagem = "https://placehold.co/600x400",
                 Capacidade = 4,
                 Preco = 200,
                 MetrosQuadrados = 55
             },
-            new Quarto
+            new Bangalo
             {
                 Id = 2,
-                Nome = "Quarto com Piscina Premium",
-                Descricao = "Quarto com piscina privativa e vista para o mar",
+                Nome = "Bangalo com Piscina Premium",
+                Descricao = "Bangalo com piscina privativa e vista para o mar",
                 UrlImagem = "https://placehold.co/600x401",
                 Capacidade = 4,
                 Preco = 300,
                 MetrosQuadrados = 55
             },
-            new Quarto
+            new Bangalo
             {
                 Id = 3,
-                Nome = "Quarto com Piscina de Luxo",
-                Descricao = "Quarto com piscina privativa e vista para o mar",
+                Nome = "Bangalo com Piscina de Luxo",
+                Descricao = "Bangalo com piscina privativa e vista para o mar",
                 UrlImagem = "https://placehold.co/600x402",
                 Capacidade = 4,
                 Preco = 400,
                 MetrosQuadrados = 75
+            }
+        );
+
+        modelBuilder.Entity<Quarto>().HasData(
+            new Quarto
+            {
+                Numero = 101,
+                BangaloId = 1,
+            },
+            new Quarto
+            {
+                Numero = 102,
+                BangaloId = 1,
+            },
+            new Quarto
+            {
+                Numero = 103,
+                BangaloId = 1,
+            },
+            new Quarto
+            {
+                Numero = 104,
+                BangaloId = 1,
+            },
+            new Quarto
+            {
+                Numero = 201,
+                BangaloId = 2,
+            },
+            new Quarto
+            {
+                Numero = 202,
+                BangaloId = 2,
+            },
+            new Quarto
+            {
+                Numero = 203,
+                BangaloId = 2,
+            },
+            new Quarto
+            {
+                Numero = 301,
+                BangaloId = 3,
+            },
+            new Quarto
+            {
+                Numero = 302,
+                BangaloId = 3,
             }
         );
     }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartResort.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using SmartResort.Infrastructure.Data;
 namespace SmartResort.Infrastructure.Migrations
 {
     [DbContext(typeof(SmartResortContext))]
-    partial class SmartResortContextModelSnapshot : ModelSnapshot
+    [Migration("20240616223022_AlteracaoNomeTabela2")]
+    partial class AlteracaoNomeTabela2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,82 +97,6 @@ namespace SmartResort.Infrastructure.Migrations
                             Preco = 400m,
                             UrlImagem = "https://placehold.co/600x402"
                         });
-                });
-
-            modelBuilder.Entity("SmartResort.Domain.Entities.Quarto", b =>
-                {
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BangaloId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DetalhesExtras")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Numero");
-
-                    b.HasIndex("BangaloId");
-
-                    b.ToTable("Quartos");
-
-                    b.HasData(
-                        new
-                        {
-                            Numero = 101,
-                            BangaloId = 1
-                        },
-                        new
-                        {
-                            Numero = 102,
-                            BangaloId = 1
-                        },
-                        new
-                        {
-                            Numero = 103,
-                            BangaloId = 1
-                        },
-                        new
-                        {
-                            Numero = 104,
-                            BangaloId = 1
-                        },
-                        new
-                        {
-                            Numero = 201,
-                            BangaloId = 2
-                        },
-                        new
-                        {
-                            Numero = 202,
-                            BangaloId = 2
-                        },
-                        new
-                        {
-                            Numero = 203,
-                            BangaloId = 2
-                        },
-                        new
-                        {
-                            Numero = 301,
-                            BangaloId = 3
-                        },
-                        new
-                        {
-                            Numero = 302,
-                            BangaloId = 3
-                        });
-                });
-
-            modelBuilder.Entity("SmartResort.Domain.Entities.Quarto", b =>
-                {
-                    b.HasOne("SmartResort.Domain.Entities.Bangalo", "Bangalo")
-                        .WithMany()
-                        .HasForeignKey("BangaloId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bangalo");
                 });
 #pragma warning restore 612, 618
         }

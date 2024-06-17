@@ -1,45 +1,37 @@
-﻿@model Quarto
+﻿@model QuartoViewModel
 
 <div class="w-100 card border-0 p-4">
     <div class="card-header bg-success bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Excluir Quarto</h2>
+                <h2 class="text-white py-2">Exclusão do Quarto</h2>
             </div>
         </div>
     </div>
     <div class="card-body border p-4">
         <form method="post" class="row">
-            <input asp-for="Id" hidden />
+            <input asp-for="Quarto.Numero" hidden />
             <div class="p-3">
+
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="Nome" disabled class="form-control border shadow" />
-                    <label asp-for="Nome" class="ms-2"></label>
+                    <select disabled asp-for="@Model.Quarto.BangaloId" asp-items="@Model.ListaDeBangalos"
+                            class="form-select border shadow">
+                        <option disabled selected>--Select Villa--</option>
+                    </select>
+                    <label asp-for="Quarto.BangaloId" class="ms-2"></label>
                 </div>
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="Descricao" disabled class="form-control border shadow" />
-                    <label asp-for="Descricao" class="ms-2"></label>
+                    <input asp-for="Quarto.Numero" disabled class="form-control border shadow" />
+                    <label asp-for="Quarto.Numero" class="ms-2"></label>
                 </div>
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="Preco" disabled class="form-control border shadow" />
-                    <label asp-for="Preco" class="ms-2"></label>
-                </div>
-                <div class="form-floating py-1 col-12">
-                    <input asp-for="MetrosQuadrados" disabled class="form-control border shadow" />
-                    <label asp-for="MetrosQuadrados" class="ms-2"></label>
-                </div>
-                <div class="form-floating py-1 col-12">
-                    <input asp-for="Capacidade" disabled class="form-control border shadow" />
-                    <label asp-for="Capacidade" class="ms-2"></label>
-                </div>
-                <div class="form-floating py-1 col-12">
-                    <input asp-for="UrlImagem" disabled class="form-control border shadow" />
-                    <label asp-for="UrlImagem" class="ms-2"></label>
+                    <input asp-for="Quarto.DetalhesExtras" disabled class="form-control border shadow" />
+                    <label asp-for="Quarto.DetalhesExtras" class="ms-2"></label>
                 </div>
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
                         <button type="submit" class="btn btn-danger w-100">
-                            <i class="bi bi-trash-fill"></i> Excluir
+                            <i class="bi bi-check-circle"></i> Excluir
                         </button>
                     </div>
                     <div class="col-6 col-md-3">
@@ -53,7 +45,7 @@
     </div>
 </div>
 
-@section Scripts{
+@section Scripts {
     @{
         <partial name="_ValidationScriptsPartial" />
     }
